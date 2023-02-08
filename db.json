@@ -1,0 +1,46 @@
+{
+  "phones": [
+    {
+      "id": "1",
+      "name": "Mehmet ",
+      "surname": "Yeşil",
+      "phones": "5555555525",
+      "categoryId": "1"
+    },
+    {
+      "id": "2",
+      "name": "Mahmut ",
+      "surname": "Kırmızı",
+      "phones": "454525365",
+      "categoryId": "2"
+    },
+    {
+      "id": "3",
+      "name": "Mahmut ",
+      "surname": "Beyaz",
+      "phones": "0552522565",
+      "categoryId": "3"
+    },
+    {
+      "id": "1675879747092",
+      "name": "Enes",
+      "surname": "Karakaş",
+      "phones": "05423358525",
+      "categoryId": "1"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Aile"
+    },
+    {
+      "id": "2",
+      "name": "Arkadaş"
+    },
+    {
+      "id": "3",
+      "name": "İş"
+    }
+  ]
+}
