@@ -31,6 +31,7 @@ const ListPhones = () => {
     
   };
   return (
+    <div className="container">
     <div className="my-5">
         <div className="d-flex justify-content-end">
            <Link to={"/add-phone"} className="btn btn-secondary btn-lg">Add Phones</Link>
@@ -71,13 +72,14 @@ const ListPhones = () => {
                   Sil
                 </button>
                 <button className="generalBtn editBtn">Güncelle</button>
-                <button className="generalBtn detailBtn">Detay</button>
+                <Link to={`/phone-detail/${phone.id}`} className="generalBtn detailBtn">Detay</Link>
               </td>
             </tr>
           );
         })}
-      </tbody>
+      </tbody> 
     </table>
+    </div>
     </div>
   );
 };

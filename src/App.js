@@ -6,6 +6,7 @@ import HomePage from "./pages/HomePage";
 import api from './api/api';
 import urls from "./api/urls";
 import AddPhones from "./pages/AddPhones";
+import PhoneDetail from './components/PhoneDetail';
 
 function App() {
    const dispatch=useDispatch()
@@ -42,6 +43,7 @@ function App() {
        <Routes>
         <Route path="/" element={<HomePage />}/>
         <Route path="/add-phone" element={<AddPhones />} />
+        <Route path="/phone-detail/:phoneId" element={<PhoneDetail />} />
        </Routes>
        </BrowserRouter>
     </div>
