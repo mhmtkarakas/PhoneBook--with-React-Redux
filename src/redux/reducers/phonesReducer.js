@@ -53,6 +53,22 @@ const phonesReducer=(state=initialState,action)=>{
                             ...state,
                             phones:[...state.phones,action.payload]
                         }
+                    case actionTypes.phoneActions.EDIT_PHONES:
+                       
+                        let temp=[]
+                        for(let i=0;i<state.phones.length;i++){
+                            if(state.phones[i].id !== action.payload.id){
+                                temp.push(state.phones[i])
+                            }else{
+                                temp.push(action.payload)
+                            }
+                        }
+                        
+                        return{
+                            ...state,
+                            phones:temp
+                        }
+
         default:
             return state
     }

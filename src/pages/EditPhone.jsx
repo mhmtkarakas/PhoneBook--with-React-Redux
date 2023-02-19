@@ -1,26 +1,25 @@
-import React, { useState } from "react";
-import Header from "../components/Header";
-import { useSelector, useDispatch } from "react-redux";
-import actionTypes from "../redux/actions/actionTypes";
-import api from "../api/api";
-import urls from "../api/urls";
-import {useNavigate} from 'react-router-dom'
+import React, {useState} from 'react'
+import Header from '../components/Header'
+import { useParams,useNavigate } from 'react-router-dom'
+import {useSelector,useDispatch} from 'react-redux'
+import api from '../api/api'
+import urls from '../api/urls'
+import actionTypes from '../redux/actions/actionTypes'
 
 
-const AddPhones = () => {
-  const navigate=useNavigate();
-  const dispatch = useDispatch();
-  const { categoriesState } = useSelector((state) => state);
-  const [form, setForm] = useState({
-    id:String(new Date().getTime()),
-    name: "",
-    surname: "",
-    phones: "",
-   // categoryId:categoriesState.categories[0].id
-  });
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    /* validatıon*/
+const EditPhone = () => {
+     const dispatch = useDispatch()
+     const navigate=useNavigate()
+    const params=useParams()
+   const {phonesState,categoriesState} = useSelector(state=>state)
+  //  console.log(phonesState);
+   const myPhone = phonesState.phones.find(item=>item.id===params.phoneId)
+  //  console.log(myPhone);
+   const [form,setForm] = useState(myPhone)
+  // console.log(form);
+   const handleSubmit=(e)=>{
+     e.preventDefault()
+       /* validatıon*/
     if (
       form.name === "" ||
       form.author === "" ||
@@ -30,25 +29,18 @@ const AddPhones = () => {
       alert("it is neccessary to enter name,surname and categoryId area");
       return ;
     }
-    /* request to api */
-   
-    api
-      .post(urls.phones, form)
-      .then((res) => {
-        dispatch({
-          type: actionTypes.phoneActions.ADD_PHONES,
-          payload: form
-        });
-        navigate("/")
-      })
-      .catch((err) => {});
-  };
-  console.log(form)
+    api.put(`${urls.phones}/${params.phoneId}`,form)
+    .then((res)=>{
+      dispatch({type:actionTypes.phoneActions.EDIT_PHONES,payload:form})
+      navigate("/")
+    })
+    .catch((err)=>{})
+   }
   return (
     <div>
-      <Header />
-      <div className="container my-5">
-        <form onSubmit={handleSubmit}>
+         <Header />
+         <div className="container my-5">
+        <form onSubmit={handleSubmit} >
           <div className="mb-3">
             <label htmlFor="name" className="form-label">
               Name
@@ -88,9 +80,9 @@ const AddPhones = () => {
               className="form-control"
               id="phonenumber"
               placeholder="Enter the phone number"
-              value={form.phones}
+               value={form.phones}
               onChange={(event) =>
-                setForm({ ...form, phones: event.target.value })
+                 setForm({ ...form, phones: event.target.value })
               }
             />
           </div>
@@ -110,13 +102,13 @@ const AddPhones = () => {
           </select>
           <div className="d-flex justify-content-center my-5">
             <button className="btn btn-secondary w-50 " type="submit">
-              Kaydet
+              Güncelle
             </button>
           </div>
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AddPhones;
+export default EditPhone

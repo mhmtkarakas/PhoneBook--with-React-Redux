@@ -16,24 +16,10 @@
     },
     {
       "id": "3",
-      "name": "Mahmut ",
-      "surname": "Beyaz",
-      "phones": "0552522565",
-      "categoryId": "3"
-    },
-    {
-      "id": "1675879747092",
-      "name": "Enes",
-      "surname": "Karakaş",
-      "phones": "05423358525",
-      "categoryId": "1"
-    },
-    {
-      "id": "1676206252466",
-      "name": "eren",
-      "surname": "karakaş",
-      "phones": "05326558545",
-      "categoryId": "1"
+      "name": "mehmet",
+      "surname": "Karakas",
+      "phones": "05423365225",
+      "categoryId": "2"
     }
   ],
   "categories": [
