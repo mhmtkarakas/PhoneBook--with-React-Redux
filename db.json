@@ -1,39 +1,32 @@
 {
   "phones": [
     {
-      "id": "1",
-      "name": "Mehmet ",
-      "surname": "Yeşil",
-      "phones": "5555555525",
-      "categoryId": "1"
+      "id": "1677417234717",
+      "name": "mustafa",
+      "surname": "karakaş",
+      "phones": "255652536",
+      "categoryId": "1677417194993"
     },
     {
-      "id": "2",
-      "name": "Mahmut ",
-      "surname": "Kırmızı",
-      "phones": "454525365",
-      "categoryId": "2"
-    },
-    {
-      "id": "3",
-      "name": "mehmet",
-      "surname": "Karakas",
-      "phones": "05423365225",
-      "categoryId": "2"
+      "id": "1677417382511",
+      "name": "kjkjıoı",
+      "surname": "şmpm.",
+      "phones": "2536525",
+      "categoryId": "1677417367191"
     }
   ],
   "categories": [
     {
-      "id": "1",
-      "name": "Aile"
+      "id": "1677095462741",
+      "name": "iş"
     },
     {
-      "id": "2",
+      "id": "1677417194993",
       "name": "Arkadaş"
     },
     {
-      "id": "3",
-      "name": "İş"
+      "id": "1677417367191",
+      "name": "komşu"
     }
   ]
 }

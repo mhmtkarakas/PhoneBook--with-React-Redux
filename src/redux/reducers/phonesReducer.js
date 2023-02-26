@@ -63,11 +63,17 @@ const phonesReducer=(state=initialState,action)=>{
                                 temp.push(action.payload)
                             }
                         }
-                        
+                       
                         return{
                             ...state,
                             phones:temp
                         }
+                        case actionTypes.phoneActions.DELETE_PHONES_AFTER_DELETE_CATEGORY:
+                          var temp1=state.phones.filter(item=>item.id !== action.payload)
+                          return{
+                              ...state,
+                              phones:temp1
+                          }
 
         default:
             return state

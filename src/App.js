@@ -8,6 +8,8 @@ import urls from "./api/urls";
 import AddPhones from "./pages/AddPhones";
 import PhoneDetail from './components/PhoneDetail';
 import EditPhone from './pages/EditPhone';
+import ListCategories from "./pages/ListCategories";
+import AddCategory from "./pages/AddCategory"
 
 function App() {
    const dispatch=useDispatch()
@@ -43,9 +45,11 @@ function App() {
        <BrowserRouter>
        <Routes>
         <Route path="/" element={<HomePage />}/>
+        <Route path="/list-categories" element={<ListCategories />}/>
         <Route path="/phone-edit/:phoneId"  element={<EditPhone />} />
         <Route path="/add-phone" element={<AddPhones />} />
         <Route path="/phone-detail/:phoneId" element={<PhoneDetail />} />
+        <Route path="/add-category" element={<AddCategory />} />
        </Routes>
        </BrowserRouter>
     </div>

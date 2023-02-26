@@ -16,7 +16,7 @@ const AddPhones = () => {
     name: "",
     surname: "",
     phones: "",
-   // categoryId:categoriesState.categories[0].id
+    categoryId:"2"
   });
   const handleSubmit = (event) => {
     event.preventDefault();

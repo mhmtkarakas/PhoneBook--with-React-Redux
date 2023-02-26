@@ -14,12 +14,14 @@ const ListPhones = () => {
 
   useEffect(()=>{
     const temp=phonesState.phones.filter(item=>
-      item.name.toLowerCase().includes(searchText.toLowerCase()) === true
+      item.name.toLowerCase().includes(searchText.toLowerCase()) === true ||
+      item.surname.toLowerCase().includes(searchText.toLowerCase()) === true
      )
     setFilteredPhones(temp)
-  },[searchText])
+  },[searchText,phonesState.phones])
+
   const deletePhone = (id) => {
-    if (window.confirm("silmek istediğinize emin misiniz") === true) {
+    if (window.confirm("silmek istediğinize emin misiniz") === true ) {
       dispatch({ type: actionTypes.phoneActions.DELETE_PHONES_START });
       api
         .delete(`${urls.phones}/${id}`)
@@ -43,11 +45,12 @@ const ListPhones = () => {
         <div className="input-group mb-3">
           <input
             type="text"
-            className="form-control"
+            className="form-control w-75"
             placeholder="Lütfen isim giriniz"
             input={searchText}
             onChange={(event)=>setSearchText(event.target.value)}
           />
+        
 
           <Link to={"/add-phone"} className="btn btn-secondary btn-lg">
             Add Phones
@@ -65,22 +68,18 @@ const ListPhones = () => {
           </thead>
           <tbody>
             {filteredPhones.map((phone, index) => {
-              /* let myCategory=null
-               for(let i=0;i<categoriesState.categories.length;i++){
-                if(categoriesState.categories[i].id===phone.categoryId){
-                    myCategory=categoriesState.categories[i]
-                }
-               } */
+           
               const myCategory = categoriesState.categories.find(
                 (item) => item.id === phone.categoryId
               );
+              console.log(myCategory)
               return (
                 <tr key={phone.id}>
                   <th scope="row">{index + 1}</th>
                   <td>{phone.name}</td>
                   <td>{phone.surname}</td>
                   <td>{phone.phones}</td>
-                  <td>{myCategory.name}</td>
+                  <td>{myCategory?.name}</td>
                   <td>
                     <button
                       onClick={() => deletePhone(phone.id)}
