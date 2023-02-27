@@ -12,7 +12,7 @@ const ListCategories = () => {
   const { categoriesState, phonesState } = useSelector((state) => state);
   const deleteCategory=(id)=>{
     if(window.confirm("silmek istediğinize emin misiniz")){
-      const phones=phonesState.phones.filter(item=>item.categoryId===id)
+      
       api.delete(`${urls.categories}/${id}`)
       .then(res=>{
         dispatch({type:actionTypes.categoryActions.DELETE_CATEGORY,payload:id,})

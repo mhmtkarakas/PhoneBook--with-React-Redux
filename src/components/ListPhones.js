@@ -50,11 +50,17 @@ const ListPhones = () => {
             input={searchText}
             onChange={(event)=>setSearchText(event.target.value)}
           />
-        
-
-          <Link to={"/add-phone"} className="btn btn-secondary btn-lg">
+        {
+          categoriesState.categories.length === 0 ? (
+            <Link to={"/add-category"}>Öncelikle Kategory Eklenmeli</Link>
+          ) : (
+            <Link to={"/add-phone"} className="btn btn-secondary btn-lg">
             Add Phones
           </Link>
+          )
+        }
+
+          
         </div>
         <table className="table table-striped ">
           <thead>

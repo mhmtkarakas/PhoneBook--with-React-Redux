@@ -9,5 +9,7 @@
 <img src="./resimler/e2.png">
 <img src="./resimler/e3.png">
 <img src="./resimler/e4.png">
+<img src="./resimler/e5.png">
+<img src="./resimler/e6.png">
 
 
